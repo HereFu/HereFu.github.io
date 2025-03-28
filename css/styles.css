@@ -1,0 +1,352 @@
+/* Cursor Mouse */
+body {
+  cursor: url('../images/minecraft-cursor.png'), auto; /* ใช้ cursor แบบ Minecraft */
+  font-family: 'Press Start 2P', cursive; /* ฟอนต์สไตล์ Minecraft */
+  background: url('../images/minecraft-background.jpg') repeat; /* พื้นหลังแบบบล็อก */
+  background-size: 64px 64px; /* ขนาดของบล็อก */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 60px; /* เพิ่ม padding-top เพื่อไม่ให้เนื้อหาถูกบังโดย Navigation Bar */
+}
+
+/* Background Animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(34, 139, 34, 0.5), rgba(0, 100, 0, 0.5));
+  z-index: -1;
+  animation: backgroundEffect 10s infinite alternate;
+}
+
+@keyframes backgroundEffect {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.container, .login-container, .menu-container {
+  text-align: center;
+  background: rgba(34, 139, 34, 0.8); /* สีเขียวโปร่งใส */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+  border: 5px solid #8b4513; /* ขอบสีน้ำตาล */
+  margin-bottom: 20px;
+}
+
+.menu-container {
+  width: 90%;
+  max-width: 600px; /* ลดขนาดความกว้าง */
+  padding: 20px;
+}
+
+/* Homepage Container */
+.homepage-container {
+  text-align: center;
+  background: rgba(34, 139, 34, 0.8); /* สีเขียวโปร่งใส */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+  border: 5px solid #8b4513; /* ขอบสีน้ำตาล */
+  width: 90%;
+  max-width: 1200px; /* เพิ่มความกว้าง */
+  margin-top: 50px; /* เพิ่มระยะห่างจากด้านบน */
+}
+
+h1 {
+  font-size: 2.8em; /* ขยายขนาดหัวข้อ */
+  color: #ffcc00; /* สีทอง */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* เพิ่มเงาให้ข้อความ */
+  margin-bottom: 30px;
+}
+
+/* ลบ Glow Effect สำหรับ h1 และ h2 */
+/* h1, h2 { */
+  /* animation: glow 1.5s infinite alternate; */ /* ลบหรือคอมเมนต์บรรทัดนี้ */
+
+
+.item-container {
+  margin: 20px 0;
+  padding: 20px;
+  border: 3px dashed #8b4513; /* ขอบสีน้ำตาล */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2); /* เพิ่มความโปร่งใส */
+}
+
+#item-display {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out; /* เพิ่ม Transition */
+}
+
+#item-display.animate {
+  animation: glow 1.5s infinite alternate; /* เพิ่ม Glow Effect */
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+  }
+  100% {
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+  }
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 1.2em;
+  color: #fff;
+  background: linear-gradient(135deg, #228b22, #006400); /* สีเขียวแบบ Minecraft */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* เพิ่มเงา */
+}
+
+/* Animation for Buttons and Links */
+button, a {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover, a:hover {
+  transform: scale(1.1); /* ขยายเมื่อ hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background: linear-gradient(135deg, #228b22, #006400); /* สีเขียวแบบ Minecraft */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* เพิ่มเงา */
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #006400, #004d00); /* เปลี่ยนสีเมื่อ hover */
+  transform: scale(1.1); /* เพิ่มเอฟเฟกต์ขยาย */
+}
+
+.firework-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #ffcc00;
+  border-radius: 50%;
+  animation: explode 2.5s ease-out forwards;
+  opacity: 0.9;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle)) translate(var(--distance));
+    opacity: 0;
+  }
+}
+
+.login-container h1 {
+  font-size: 2em;
+  color: #ffcc00; /* สีทอง */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1em;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #8b4513; /* ขอบสีน้ำตาล */
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2); /* เพิ่มความโปร่งใส */
+  color: #fff;
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-button {
+  padding: 12px 25px;
+  font-size: 1.2em;
+  color: #fff;
+  background: linear-gradient(135deg, #228b22, #006400);
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu-button:hover {
+  background: linear-gradient(135deg, #006400, #004d00);
+  transform: scale(1.1);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* ลดขนาดการ์ด */
+  gap: 15px;
+}
+
+.menu-card {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid #8b4513;
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.menu-card-content h2 {
+  font-size: 1.2em; /* ลดขนาดหัวข้อในการ์ด */
+  margin: 10px 0;
+  color: #ffcc00;
+}
+
+.menu-card-content p {
+  font-size: 0.9em; /* ลดขนาดข้อความคำอธิบาย */
+  color: #fff;
+  text-align: center;
+}
+
+/* ลบ .menu-icon หากไม่ต้องการใช้งาน */
+.menu-icon {
+  display: none;
+}
+
+/* Homepage Grid */
+.homepage-grid {
+  display: flex; /* ใช้ Flexbox เพื่อจัดการ์ดให้อยู่ในบรรทัดเดียวกัน */
+  justify-content: space-around; /* กระจายการ์ดให้มีระยะห่างเท่ากัน */
+  flex-wrap: wrap; /* ให้การ์ดเลื่อนลงเมื่อหน้าจอแคบ */
+  gap: 20px; /* เพิ่มช่องว่างระหว่างการ์ด */
+}
+
+/* Homepage Card */
+.homepage-card {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1); /* เพิ่มความโปร่งใส */
+  border: 3px solid #8b4513; /* ขอบสีน้ำตาล */
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em; /* ขยายขนาดข้อความ */
+  width: 200px; /* กำหนดขนาดการ์ด */
+  height: 150px; /* กำหนดความสูงการ์ด */
+}
+
+.homepage-card:hover {
+  transform: scale(1.05); /* ขยายการ์ดเมื่อ hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* เพิ่มเงาเมื่อ hover */
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background: rgba(34, 139, 34, 0.9); /* สีเขียวโปร่งใส */
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1em;
+  margin: 0 15px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.2); /* เพิ่มพื้นหลังเมื่อ hover */
+  border-radius: 5px;
+  transform: scale(1.1);
+}
+
+/* Particle Effect */
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffcc00;
+  border-radius: 50%;
+  animation: particleEffect 1s ease-out forwards;
+}
+
+@keyframes particleEffect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}

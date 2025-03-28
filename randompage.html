@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Item Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="homepage.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="topup.html">เติมเงิน</a>
+    <a href="contact.html">ติดต่อเรา</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Random Item Generator</h1>
+    <p id="username-display"></p> <!-- แสดงชื่อผู้เล่น -->
+    <div id="item-display" class="item-display">Click the button to generate an item!</div>
+    <button id="generate-button">Generate Item</button>
+  </div>
+
+  <script src="randompage.js"></script>
+  <script>
+    // ดึงชื่อผู้เล่นจาก Local Storage
+    const username = localStorage.getItem('minecraftUsername');
+    if (!username) {
+      alert('Please login first!');
+      window.location.href = 'login.html'; // กลับไปหน้า Login หากยังไม่ได้ล็อกอิน
+    } else {
+      document.getElementById('username-display').textContent = `Logged in as: ${username}`;
+    }
+  </script>
+</body>
+</html>
